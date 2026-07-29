@@ -1,0 +1,16 @@
+id,nom,taille,poids,couleur,prix,stock,image
+J-01,Jarre CFOC,H90 × L50 cm,45 kg,Vert,212.5,1,jarre-vert.jpg
+J-02,Jarre CFOC,H65 × L50 cm,30 kg,Ecru,142.5,7,jarre-vert-ecru.jpg
+J-03,Jarre Bordeaux,H99 × L43 cm,50 kg,Bordeaux,212.5,4,jarre-bordeaux.jpg
+J-04,Pot Marron,H122 × L35 cm,65 kg,Marron,325,1,jarre-marron.jpg
+J-05,Pot Marron,H70 × L57 cm,35 kg,Marron,142.5,1,jarre-marron.jpg
+J-06,Pot Marron,H70 × L46 cm,35 kg,Marron,142.5,6,jarre-marron.jpg
+J-07,Pot Marron,H62 × L50 cm,30 kg,Marron,125,1,jarre-marron.jpg
+J-08,Pot Marron,H44 × L21 cm,20 kg,Marron,100,1,jarre-marron.jpg
+J-09,Pot Marron,H40 × L37 cm,20 kg,Marron,100,1,jarre-marron.jpg
+J-10,Pot Vert et Ecru,H40 × L48 cm,20 kg,Vert et Ecru,100,1,jarre-vert-ecru.jpg
+J-11,Pot Vert et Ecru,H33 × L35 cm,15 kg,Vert et Ecru,75,1,jarre-vert-ecru.jpg
+J-12,Pot Vert,H38 × L40 cm,20 kg,Vert,75,1,jarre-vert.jpg
+J-13,Pot Noir,H120 × L55 cm,65 kg,Noir,325,1,jarre-noir.jpg
+J-14,Pot Noir,H95 × L50 cm,50 kg,Noir,212.5,1,jarre-noir.jpg
+J-15,Pot Bleu,H122 × L35 cm,65 kg,Bleu,325,2,jarre-bleu.jpg
