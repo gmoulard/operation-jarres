@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pré-vente des Jarres CFOC — Croix-Rouge française, DT Yvelines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red: #E2001A;
+    --red-dark: #A8000F;
+    --ink: #1E2224;
+    --porcelain-blue: #2C5B70;
+    --porcelain-blue-light: #DCE9EC;
+    --cream: #FAF6EF;
+    --paper: #FFFFFF;
+    --line: #E4DDD0;
+    --muted: #6B6459;
+    --radius: 4px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Public Sans', sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.55;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+
+  /* Header */
+  header.site{
+    position:sticky; top:0; z-index:50;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 24px;max-width:1120px;margin:0 auto;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;}
+  .cross{
+    width:26px;height:26px;position:relative;flex:none;
+  }
+  .cross::before,.cross::after{
+    content:"";position:absolute;background:var(--red);
+  }
+  .cross::before{left:40%;top:0;width:20%;height:100%;}
+  .cross::after{top:40%;left:0;height:20%;width:100%;}
+  .brand small{display:block;font-family:'Public Sans',sans-serif;font-weight:500;color:var(--muted);font-size:0.68rem;letter-spacing:.03em;text-transform:uppercase;}
+  nav.links{display:flex;gap:28px;font-size:0.92rem;font-weight:500;}
+  nav.links a{text-decoration:none;color:var(--ink);opacity:.75;transition:opacity .15s;}
+  nav.links a:hover{opacity:1;}
+  .cart-pill{
+    display:flex;align-items:center;gap:8px;background:var(--ink);color:#fff;
+    border:none;border-radius:999px;padding:9px 18px;font-family:'Public Sans',sans-serif;
+    font-weight:600;font-size:0.85rem;cursor:pointer;
+  }
+  .cart-pill span.count{background:var(--red);border-radius:999px;padding:1px 8px;font-size:0.75rem;}
+
+  /* Hero */
+  .hero{
+    background: linear-gradient(180deg, #fff 0%, var(--cream) 100%);
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;align-items:center;
+    padding:64px 24px 48px;max-width:1120px;margin:0 auto;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--porcelain-blue-light);color:var(--porcelain-blue);
+    font-size:0.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    padding:6px 12px;border-radius:999px;margin-bottom:18px;
+  }
+  .hero h1{font-size:clamp(2.1rem,4vw,3.2rem);line-height:1.06;}
+  .hero h1 em{font-style:normal;color:var(--red);}
+  .hero p.lead{margin-top:18px;font-size:1.08rem;color:var(--muted);max-width:46ch;}
+  .hero-facts{display:flex;gap:28px;margin-top:32px;flex-wrap:wrap;}
+  .fact b{display:block;font-family:'Fraunces',serif;font-size:1.3rem;}
+  .fact span{font-size:0.8rem;color:var(--muted);}
+  .hero-cta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:13px 24px;border-radius:999px;font-weight:600;font-size:0.92rem;
+    text-decoration:none;cursor:pointer;border:1.5px solid transparent;transition:transform .12s ease;
+  }
+  .btn:active{transform:scale(.97);}
+  .btn-primary{background:var(--red);color:#fff;}
+  .btn-primary:hover{background:var(--red-dark);}
+  .btn-ghost{border-color:var(--ink);color:var(--ink);background:transparent;}
+
+  /* Jar illustration */
+  .jar-art{display:flex;justify-content:center;}
+  .jar-svg{width:100%;max-width:320px;}
+
+  /* How it works */
+  .steps{padding:56px 24px;background:var(--paper);}
+  .steps h2{font-size:1.6rem;text-align:center;margin-bottom:8px;}
+  .steps p.sub{text-align:center;color:var(--muted);margin-bottom:38px;}
+  .step-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1000px;margin:0 auto;}
+  .step{border-top:2px solid var(--red);padding-top:14px;}
+  .step .n{font-family:'Fraunces',serif;color:var(--red);font-size:0.85rem;font-weight:600;}
+  .step h3{font-size:1.05rem;margin-top:6px;}
+  .step p{color:var(--muted);font-size:0.92rem;margin-top:6px;}
+
+  /* Catalogue */
+  .catalog{padding:64px 24px;}
+  .catalog-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:28px;}
+  .catalog-head h2{font-size:1.7rem;}
+  .filters{display:flex;gap:10px;flex-wrap:wrap;}
+  .filters select{
+    border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font-family:'Public Sans',sans-serif;font-size:0.85rem;
+  }
+  #catalog-status{color:var(--muted);font-size:0.9rem;margin-bottom:16px;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:22px;}
+  .card{
+    background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;display:flex;flex-direction:column;
+  }
+  .card-img{aspect-ratio:1/1;background:var(--porcelain-blue-light);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+  .card-img img{width:100%;height:100%;object-fit:cover;}
+  .card-body{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1;}
+  .card-tag{font-size:0.7rem;text-transform:uppercase;letter-spacing:.05em;color:var(--porcelain-blue);font-weight:700;}
+  .card-body h3{font-size:1.05rem;font-weight:600;}
+  .card-meta{font-size:0.82rem;color:var(--muted);}
+  .card-foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:10px;}
+  .price{font-family:'Fraunces',serif;font-size:1.15rem;}
+  .qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:999px;overflow:hidden;}
+  .qty button{border:none;background:#fff;width:28px;height:28px;cursor:pointer;font-size:1rem;}
+  .qty input{width:32px;border:none;text-align:center;font-size:0.9rem;-moz-appearance:textfield;}
+  .card.sold-out{opacity:.55;}
+  .badge-soldout{position:absolute;background:var(--ink);color:#fff;font-size:.68rem;padding:3px 8px;border-radius:4px;margin:8px;}
+
+  /* Practical info */
+  .info{padding:56px 24px;background:var(--porcelain-blue);color:#fff;}
+  .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:1000px;margin:0 auto;align-items:start;}
+  .info h2{font-size:1.5rem;color:#fff;}
+  .info-list{list-style:none;padding:0;margin-top:18px;display:flex;flex-direction:column;gap:14px;}
+  .info-list li{display:flex;gap:12px;font-size:0.95rem;}
+  .info-list b{display:block;}
+  .info-list .dot{width:8px;height:8px;border-radius:50%;background:#fff;margin-top:7px;flex:none;}
+  .map-frame{border-radius:var(--radius);overflow:hidden;border:1px solid rgba(255,255,255,.25);}
+
+  /* Order form */
+  .order{padding:64px 24px;background:var(--paper);}
+  .order-wrap{max-width:760px;margin:0 auto;}
+  .order h2{font-size:1.6rem;text-align:center;}
+  .order p.sub{text-align:center;color:var(--muted);margin-top:8px;}
+  .order-summary{
+    margin-top:32px;border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;background:var(--cream);
+  }
+  .order-summary .line{display:flex;justify-content:space-between;font-size:0.92rem;padding:6px 0;border-bottom:1px dashed var(--line);}
+  .order-summary .line:last-child{border:none;}
+  .order-summary .total{font-family:'Fraunces',serif;font-size:1.2rem;display:flex;justify-content:space-between;margin-top:10px;padding-top:10px;border-top:1px solid var(--line);}
+  .empty-cart{color:var(--muted);font-size:0.9rem;text-align:center;padding:10px 0;}
+  form.contact{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  form.contact .full{grid-column:1/-1;}
+  label{display:block;font-size:0.82rem;font-weight:600;margin-bottom:6px;}
+  input[type=text],input[type=email],input[type=tel],textarea{
+    width:100%;border:1px solid var(--line);border-radius:var(--radius);padding:11px 12px;font-family:'Public Sans',sans-serif;font-size:0.92rem;background:#fff;
+  }
+  textarea{resize:vertical;min-height:70px;}
+  .submit-row{grid-column:1/-1;display:flex;align-items:center;gap:16px;margin-top:6px;flex-wrap:wrap;}
+  .form-msg{font-size:0.85rem;color:var(--muted);}
+  .form-msg.ok{color:#1a7a3c;}
+  .form-msg.err{color:var(--red);}
+
+  footer{padding:34px 24px;text-align:center;color:var(--muted);font-size:0.82rem;background:var(--ink);color:#cfcac0;}
+  footer b{color:#fff;}
+
+  @media (max-width:820px){
+    .hero-grid{grid-template-columns:1fr;padding-top:36px;}
+    .jar-art{order:-1;max-width:200px;margin:0 auto;}
+    .step-grid{grid-template-columns:1fr;}
+    .info-grid{grid-template-columns:1fr;}
+    form.contact{grid-template-columns:1fr;}
+    nav.links{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <div class="brand">
+      <span class="cross"></span>
+      <div>
+        Croix-Rouge française
+        <small>Délégation territoriale des Yvelines</small>
+      </div>
+    </div>
+    <nav class="links">
+      <a href="#catalogue">Catalogue</a>
+      <a href="#infos">Infos pratiques</a>
+      <a href="#commande">Précommander</a>
+    </nav>
+    <button class="cart-pill" onclick="document.getElementById('commande').scrollIntoView({behavior:'smooth'})">
+      🧺 Ma sélection <span class="count" id="nav-count">0</span>
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <span class="eyebrow">Vente solidaire · CFOC</span>
+      <h1>Précommandez vos <em>jarres CFOC</em>,<br>soutenez la Croix-Rouge des Yvelines</h1>
+      <p class="lead">Une sélection de jarres en grès et porcelaine CFOC — tailles, poids et coloris variés — proposée en pré-vente exclusive au profit des actions locales de la Croix-Rouge française. Réservez en ligne, retirez et réglez sur place.</p>
+      <div class="hero-facts">
+        <div class="fact"><b>19 &amp; 20 sept. 2026</b><span>Jours de vente et de retrait</span></div>
+        <div class="fact"><b>Guyancourt (78)</b><span>DT Yvelines · 2 rue Galilée</span></div>
+        <div class="fact"><b>100%</b><span>reversés aux actions locales</span></div>
+      </div>
+      <div class="hero-cta">
+        <a href="#catalogue" class="btn btn-primary">Voir le catalogue</a>
+        <a href="#infos" class="btn btn-ghost">Infos pratiques</a>
+      </div>
+    </div>
+    <div class="jar-art">
+      <svg class="jar-svg" viewBox="0 0 220 300" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="110" cy="284" rx="58" ry="10" fill="#00000014"/>
+        <path d="M78 60 C60 90 52 130 52 170 C52 225 76 262 110 262 C144 262 168 225 168 170 C168 130 160 90 142 60 Z" fill="#F3F7F8" stroke="#2C5B70" stroke-width="2"/>
+        <path d="M78 60 C60 90 52 130 52 170 C52 225 76 262 110 262 C144 262 168 225 168 170 C168 130 160 90 142 60 Z" fill="none" stroke="#2C5B70" stroke-width="1" opacity=".4"/>
+        <path d="M70 100 C90 90 130 90 150 100" fill="none" stroke="#2C5B70" stroke-width="2" opacity=".55"/>
+        <path d="M62 150 C86 138 134 138 158 150" fill="none" stroke="#2C5B70" stroke-width="2" opacity=".55"/>
+        <path d="M58 200 C84 190 136 190 162 200" fill="none" stroke="#2C5B70" stroke-width="2" opacity=".55"/>
+        <circle cx="95" cy="120" r="4" fill="#2C5B70" opacity=".5"/>
+        <circle cx="132" cy="175" r="5" fill="#2C5B70" opacity=".4"/>
+        <circle cx="90" cy="225" r="3.5" fill="#2C5B70" opacity=".5"/>
+        <rect x="88" y="38" width="44" height="26" rx="4" fill="#F3F7F8" stroke="#2C5B70" stroke-width="2"/>
+        <ellipse cx="110" cy="38" rx="22" ry="7" fill="#F3F7F8" stroke="#2C5B70" stroke-width="2"/>
+        <ellipse cx="110" cy="30" rx="14" ry="6" fill="#F3F7F8" stroke="#2C5B70" stroke-width="2"/>
+        <g transform="translate(150,150) rotate(18)">
+          <path d="M0 0 L34 0 L34 44 L17 34 L0 44 Z" fill="#E2001A"/>
+          <text x="17" y="20" font-family="Fraunces, serif" font-size="9" fill="#fff" text-anchor="middle">Pré-vente</text>
+          <text x="17" y="30" font-family="Fraunces, serif" font-size="9" fill="#fff" text-anchor="middle">solidaire</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="steps">
+  <div class="wrap">
+    <h2>Comment participer</h2>
+    <p class="sub">Trois étapes simples entre votre réservation et le retrait de vos jarres.</p>
+    <div class="step-grid">
+      <div class="step">
+        <div class="n">Étape 1</div>
+        <h3>Choisissez vos jarres</h3>
+        <p>Parcourez le catalogue CFOC : taille, poids et couleur sont précisés pour chaque modèle.</p>
+      </div>
+      <div class="step">
+        <div class="n">Étape 2</div>
+        <h3>Précommandez en ligne</h3>
+        <p>Renseignez vos coordonnées, votre précommande est transmise à l'équipe organisatrice.</p>
+      </div>
+      <div class="step">
+        <div class="n">Étape 3</div>
+        <h3>Retirez &amp; réglez sur place</h3>
+        <p>Rendez-vous les 19 ou 20 septembre 2026 à la DT Yvelines pour récupérer vos jarres et régler votre commande.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="catalog" id="catalogue">
+  <div class="wrap">
+    <div class="catalog-head">
+      <div>
+        <h2>Catalogue des jarres CFOC</h2>
+        <p style="color:var(--muted);margin-top:6px;">Toutes les jarres sont de la marque CFOC. Stock limité et non garanti avant confirmation.</p>
+      </div>
+      <div class="filters">
+        <select id="filter-color"><option value="">Couleur</option></select>
+        <select id="filter-size"><option value="">Taille</option></select>
+      </div>
+    </div>
+    <p id="catalog-status">Chargement du catalogue…</p>
+    <div class="grid" id="catalog-grid"></div>
+  </div>
+</section>
+
+<section class="info" id="infos">
+  <div class="info-grid">
+    <div>
+      <h2>Infos pratiques</h2>
+      <ul class="info-list">
+        <li><span class="dot"></span><div><b>Dates de vente et de retrait</b>Samedi 19 et dimanche 20 septembre 2026</div></li>
+        <li><span class="dot"></span><div><b>Lieu</b>Croix-Rouge française — DT Yvelines<br>2 rue Galilée, 78280 Guyancourt</div></li>
+        <li><span class="dot"></span><div><b>Retrait &amp; règlement</b>Sur place, aux dates de vente. Merci de vous munir de votre email de confirmation.</div></li>
+        <li><span class="dot"></span><div><b>Contact précommandes</b>gmoulard+precommandeJarre@gmail.com</div></li>
+      </ul>
+    </div>
+    <div class="map-frame">
+      <iframe src="https://www.google.com/maps?q=2+rue+Galil%C3%A9e,+78280+Guyancourt&output=embed" width="100%" height="280" style="border:0;" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="order" id="commande">
+  <div class="order-wrap">
+    <h2>Ma précommande</h2>
+    <p class="sub">Vérifiez votre sélection puis renseignez vos coordonnées pour valider votre précommande.</p>
+
+    <div class="order-summary" id="order-summary">
+      <p class="empty-cart">Votre sélection est vide — ajoutez des jarres depuis le catalogue.</p>
+    </div>
+
+    <form class="contact" id="order-form">
+      <div>
+        <label for="f-nom">Nom et prénom</label>
+        <input type="text" id="f-nom" required>
+      </div>
+      <div>
+        <label for="f-tel">Téléphone</label>
+        <input type="tel" id="f-tel" required>
+      </div>
+      <div class="full">
+        <label for="f-email">Email</label>
+        <input type="email" id="f-email" required>
+      </div>
+      <div class="full">
+        <label for="f-note">Message (optionnel)</label>
+        <textarea id="f-note" placeholder="Précisions, jour de retrait souhaité…"></textarea>
+      </div>
+      <div class="submit-row">
+        <button type="submit" class="btn btn-primary" id="submit-btn">Envoyer ma précommande</button>
+        <span class="form-msg" id="form-msg"></span>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><b>Croix-Rouge française — Délégation territoriale des Yvelines</b><br>
+    2 rue Galilée, 78280 Guyancourt — Vente au profit des actions locales de la Croix-Rouge</p>
+    <p style="margin-top:10px;">Jarres de la marque CFOC — pré-vente du 19 au 20 septembre 2026</p>
+  </div>
+</footer>
+
+<script>
+/* =====================================================================
+   CONFIGURATION — à compléter par l'organisateur
+   ===================================================================== */
+const CONFIG = {
+  // ID du Google Sheet (déjà renseigné)
+  SHEET_ID: "1jp0kOLJOHfWfqg5cLhSsunFyHw63XtlI",
+  // gid de l'onglet "catalogue". Si le catalogue ne se charge pas, ouvrez cet
+  // onglet dans Google Sheets et copiez le nombre visible après #gid= dans l'URL.
+  CATALOGUE_GID: "0",
+  CATALOGUE_SHEET_NAME: "catalogue",
+  // URL du Web App Google Apps Script (voir apps-script.gs fourni),
+  // à coller ici une fois le script déployé. Laisser vide pour désactiver
+  // l'enregistrement automatique dans l'onglet "Preventes".
+  APPS_SCRIPT_URL: "",
+  // Email de secours utilisé pour le lien "mailto" (toujours actif)
+  ORDER_EMAIL: "gmoulard+precommandeJarre@gmail.com"
+};
+
+/* Exemple de secours si le Sheet n'est pas accessible publiquement.
+   Remplacé automatiquement dès que le chargement du Google Sheet réussit. */
+const FALLBACK_CATALOG = [
+  {id:"DEMO-1", nom:"Jarre Guangxi", taille:"Grand modèle (H45cm)", poids:"6.2 kg", couleur:"Bleu céladon", prix:59, stock:8, image:""},
+  {id:"DEMO-2", nom:"Jarre Yunnan", taille:"Moyen modèle (H32cm)", poids:"3.8 kg", couleur:"Blanc craquelé", prix:42, stock:10, image:""},
+  {id:"DEMO-3", nom:"Jarre Fujian", taille:"Petit modèle (H22cm)", poids:"1.9 kg", couleur:"Vert jade", prix:29, stock:12, image:""},
+  {id:"DEMO-4", nom:"Jarre Sichuan", taille:"Grand modèle (H48cm)", poids:"7.1 kg", couleur:"Bleu nuit", prix:65, stock:5, image:""},
+];
+
+let CATALOG = [];
+let CART = {}; // id -> {item, qty}
+let usingFallback = false;
+
+function gviz2json(text){
+  // Google renvoie du JSONP: google.visualization.Query.setResponse({...});
+  const start = text.indexOf("{");
+  const end = text.lastIndexOf("}");
+  return JSON.parse(text.substring(start, end+1));
+}
+
+function parseCatalogRows(table){
+  const cols = table.cols.map(c => (c.label || c.id || "").trim().toLowerCase());
+  const idx = (name) => cols.findIndex(c => c.includes(name));
+  const iId = idx("id"), iNom = idx("nom"), iTaille = idx("taille"), iPoids = idx("poids"),
+        iCouleur = idx("couleur"), iPrix = idx("prix"), iStock = idx("stock"), iImg = idx("image");
+
+  return table.rows.map((row, i) => {
+    const val = (ix) => {
+      if (ix < 0) return "";
+      const c = row.c[ix];
+      return c ? (c.v ?? "") : "";
+    };
+    const nom = val(iNom) || val(0); // repli sur la 1ère colonne si aucune en-tête "Nom" trouvée
+    if (!nom) return null;
+    return {
+      id: (val(iId) || nom || ("row-"+i)).toString(),
+      nom: nom.toString(),
+      taille: val(iTaille).toString(),
+      poids: val(iPoids).toString(),
+      couleur: val(iCouleur).toString(),
+      prix: Number(val(iPrix)) || 0,
+      stock: val(iStock) === "" ? null : Number(val(iStock)),
+      image: val(iImg).toString()
+    };
+  }).filter(Boolean);
+}
+
+async function loadCatalog(){
+  const status = document.getElementById("catalog-status");
+  try{
+    const url = `https://docs.google.com/spreadsheets/d/${CONFIG.SHEET_ID}/gviz/tq?tqx=out:json&gid=${CONFIG.CATALOGUE_GID}&sheet=${encodeURIComponent(CONFIG.CATALOGUE_SHEET_NAME)}`;
+    const res = await fetch(url);
+    if(!res.ok) throw new Error("HTTP " + res.status);
+    const text = await res.text();
+    const json = gviz2json(text);
+    const rows = parseCatalogRows(json.table);
+    if(!rows.length) throw new Error("Feuille vide");
+    CATALOG = rows;
+    status.textContent = `${rows.length} jarre(s) disponible(s) — catalogue synchronisé en direct.`;
+  }catch(err){
+    usingFallback = true;
+    CATALOG = FALLBACK_CATALOG;
+    status.textContent = "Catalogue de démonstration affiché (le Google Sheet n'est pas encore accessible publiquement — voir INSTRUCTIONS.md).";
+  }
+  populateFilters();
+  renderCatalog();
+}
+
+function populateFilters(){
+  const colors = [...new Set(CATALOG.map(i=>i.couleur).filter(Boolean))].sort();
+  const sizes = [...new Set(CATALOG.map(i=>i.taille).filter(Boolean))].sort();
+  const fc = document.getElementById("filter-color");
+  const fs = document.getElementById("filter-size");
+  colors.forEach(c => fc.insertAdjacentHTML("beforeend", `<option value="${c}">${c}</option>`));
+  sizes.forEach(s => fs.insertAdjacentHTML("beforeend", `<option value="${s}">${s}</option>`));
+  fc.onchange = renderCatalog;
+  fs.onchange = renderCatalog;
+}
+
+function renderCatalog(){
+  const grid = document.getElementById("catalog-grid");
+  const fc = document.getElementById("filter-color").value;
+  const fs = document.getElementById("filter-size").value;
+  const items = CATALOG.filter(i => (!fc || i.couleur===fc) && (!fs || i.taille===fs));
+  grid.innerHTML = items.map(item => {
+    const soldOut = item.stock !== null && item.stock <= 0;
+    const qty = CART[item.id]?.qty || 0;
+    return `
+    <div class="card ${soldOut?'sold-out':''}">
+      ${soldOut?'<div class="badge-soldout">Épuisé</div>':''}
+      <div class="card-img">${item.image ? `<img src="${item.image}" alt="${item.nom}">` : jarPlaceholder()}</div>
+      <div class="card-body">
+        <span class="card-tag">CFOC</span>
+        <h3>${item.nom}</h3>
+        <div class="card-meta">${[item.taille,item.poids,item.couleur].filter(Boolean).join(" · ")}</div>
+        <div class="card-foot">
+          <span class="price">${item.prix ? item.prix.toFixed(2)+" €" : "—"}</span>
+          <div class="qty">
+            <button type="button" onclick="changeQty('${item.id}',-1)" ${soldOut?'disabled':''}>−</button>
+            <input type="text" readonly value="${qty}" id="qty-${item.id}">
+            <button type="button" onclick="changeQty('${item.id}',1)" ${soldOut?'disabled':''}>+</button>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }).join("") || `<p style="color:var(--muted)">Aucune jarre ne correspond à ces filtres.</p>`;
+}
+
+function jarPlaceholder(){
+  return `<svg width="60%" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+    <path d="M35 30 C25 45 22 65 22 82 C22 105 35 122 50 122 C65 122 78 105 78 82 C78 65 75 45 65 30 Z" fill="#fff" stroke="#2C5B70" stroke-width="2"/>
+    <rect x="40" y="18" width="20" height="12" rx="2" fill="#fff" stroke="#2C5B70" stroke-width="2"/>
+  </svg>`;
+}
+
+function changeQty(id, delta){
+  const item = CATALOG.find(i => i.id === id);
+  if(!item) return;
+  const current = CART[id]?.qty || 0;
+  let next = current + delta;
+  if(next < 0) next = 0;
+  if(item.stock !== null && next > item.stock) next = item.stock;
+  if(next === 0){ delete CART[id]; } else { CART[id] = {item, qty: next}; }
+  document.getElementById(`qty-${id}`).value = next;
+  renderSummary();
+}
+
+function renderSummary(){
+  const box = document.getElementById("order-summary");
+  const entries = Object.values(CART);
+  const count = entries.reduce((s,e)=>s+e.qty,0);
+  document.getElementById("nav-count").textContent = count;
+  if(!entries.length){
+    box.innerHTML = `<p class="empty-cart">Votre sélection est vide — ajoutez des jarres depuis le catalogue.</p>`;
+    return;
+  }
+  let total = 0;
+  const lines = entries.map(({item,qty}) => {
+    const sub = item.prix * qty;
+    total += sub;
+    return `<div class="line"><span>${qty} × ${item.nom} (${[item.taille,item.couleur].filter(Boolean).join(", ")})</span><span>${sub.toFixed(2)} €</span></div>`;
+  }).join("");
+  box.innerHTML = lines + `<div class="total"><span>Total estimé</span><span>${total.toFixed(2)} €</span></div>`;
+}
+
+function buildOrderText(){
+  const entries = Object.values(CART);
+  let total = 0;
+  const lines = entries.map(({item,qty}) => {
+    const sub = item.prix * qty;
+    total += sub;
+    return `- ${qty} x ${item.nom} | ${[item.taille,item.poids,item.couleur].filter(Boolean).join(" / ")} | ${item.prix.toFixed(2)} € pièce | sous-total ${sub.toFixed(2)} €`;
+  });
+  return { text: lines.join("\n"), total };
+}
+
+document.getElementById("order-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const msg = document.getElementById("form-msg");
+  const btn = document.getElementById("submit-btn");
+  const entries = Object.values(CART);
+  if(!entries.length){
+    msg.textContent = "Ajoutez au moins une jarre à votre sélection avant d'envoyer.";
+    msg.className = "form-msg err";
+    return;
+  }
+  const nom = document.getElementById("f-nom").value.trim();
+  const email = document.getElementById("f-email").value.trim();
+  const tel = document.getElementById("f-tel").value.trim();
+  const note = document.getElementById("f-note").value.trim();
+  const { text, total } = buildOrderText();
+
+  btn.disabled = true;
+  msg.textContent = "Envoi en cours…";
+  msg.className = "form-msg";
+
+  // 1) Enregistrement dans le Google Sheet "Preventes" via Apps Script (si configuré)
+  let recorded = false;
+  if(CONFIG.APPS_SCRIPT_URL){
+    try{
+      await fetch(CONFIG.APPS_SCRIPT_URL, {
+        method: "POST",
+        headers: {"Content-Type":"text/plain;charset=utf-8"}, // évite le preflight CORS
+        body: JSON.stringify({ nom, email, telephone: tel, note, detail: text, total: total.toFixed(2) })
+      });
+      recorded = true;
+    }catch(err){ /* on continue avec le mailto en secours */ }
+  }
+
+  // 2) Toujours proposer l'envoi par email à l'adresse de précommande
+  const subject = encodeURIComponent(`Précommande jarres CFOC — ${nom}`);
+  const body = encodeURIComponent(
+    `Nouvelle précommande\n\nNom : ${nom}\nEmail : ${email}\nTéléphone : ${tel}\n\nDétail :\n${text}\n\nTotal estimé : ${total.toFixed(2)} €\n\nNote : ${note || "—"}`
+  );
+  window.location.href = `mailto:${CONFIG.ORDER_EMAIL}?subject=${subject}&body=${body}`;
+
+  msg.textContent = recorded
+    ? "Précommande enregistrée. Un email va s'ouvrir pour confirmer votre envoi."
+    : "Un email va s'ouvrir pour envoyer votre précommande — merci de cliquer sur \"Envoyer\".";
+  msg.className = "form-msg ok";
+  btn.disabled = false;
+});
+
+loadCatalog();
+</script>
+</body>
+</html>
