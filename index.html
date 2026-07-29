@@ -341,6 +341,20 @@
         <span class="form-msg" id="form-msg"></span>
       </div>
     </form>
+
+    <div id="post-submit" style="display:none;margin-top:22px;border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;background:var(--cream);">
+      <p id="post-submit-msg" style="margin:0 0 12px;font-weight:600;"></p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a id="mailto-link" class="btn btn-primary" href="#" style="text-decoration:none;">📧 Ouvrir mon application mail</a>
+        <a id="gmail-web-link" class="btn btn-ghost" href="#" target="_blank" rel="noopener" style="text-decoration:none;">Ouvrir Gmail (web)</a>
+        <button type="button" class="btn btn-ghost" id="copy-btn">Copier le récapitulatif</button>
+      </div>
+      <p style="font-size:0.82rem;color:var(--muted);margin-top:12px;">
+        Si aucun bouton ne s'ouvre depuis votre téléphone (pas d'application mail configurée), copiez le récapitulatif et envoyez-le manuellement à
+        <strong id="post-submit-email"></strong>.
+      </p>
+      <textarea id="order-text-fallback" readonly style="width:100%;min-height:120px;margin-top:10px;font-family:monospace;font-size:0.8rem;" onclick="this.select()"></textarea>
+    </div>
   </div>
 </section>
 
@@ -566,18 +580,41 @@ document.getElementById("order-form").addEventListener("submit", async (e) => {
     }catch(err){ /* on continue avec le mailto en secours */ }
   }
 
-  // 2) Toujours proposer l'envoi par email à l'adresse de précommande
+  // 2) Toujours proposer l'envoi par email à l'adresse de précommande —
+  // on affiche des options explicites plutôt que de rediriger automatiquement
+  // avec window.location.href, qui ne déclenche rien de visible sur un
+  // téléphone sans application mail par défaut configurée (l'utilisateur a
+  // alors l'impression que "l'envoi ne fonctionne pas").
   const subject = encodeURIComponent(`Précommande jarres CFOC — ${nom}`);
-  const body = encodeURIComponent(
-    `Nouvelle précommande\n\nNom : ${nom}\nEmail : ${email}\nTéléphone : ${tel}\n\nDétail :\n${text}\n\nTotal estimé : ${total.toFixed(2)} €\n\nNote : ${note || "—"}`
-  );
-  window.location.href = `mailto:${CONFIG.ORDER_EMAIL}?subject=${subject}&body=${body}`;
+  const fullText = `Nouvelle précommande\n\nNom : ${nom}\nEmail : ${email}\nTéléphone : ${tel}\n\nDétail :\n${text}\n\nTotal estimé : ${total.toFixed(2)} €\n\nNote : ${note || "—"}`;
+  const bodyEncoded = encodeURIComponent(fullText);
 
-  msg.textContent = recorded
-    ? "Précommande enregistrée. Un email va s'ouvrir pour confirmer votre envoi."
-    : "Un email va s'ouvrir pour envoyer votre précommande — merci de cliquer sur \"Envoyer\".";
+  document.getElementById("mailto-link").href = `mailto:${CONFIG.ORDER_EMAIL}?subject=${subject}&body=${bodyEncoded}`;
+  document.getElementById("gmail-web-link").href = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(CONFIG.ORDER_EMAIL)}&su=${subject}&body=${bodyEncoded}`;
+  document.getElementById("post-submit-email").textContent = CONFIG.ORDER_EMAIL;
+  document.getElementById("order-text-fallback").value = fullText;
+  document.getElementById("post-submit-msg").textContent = recorded
+    ? "✅ Précommande déjà enregistrée. Vous pouvez aussi la confirmer par email :"
+    : "Choisissez comment envoyer votre précommande :";
+  document.getElementById("post-submit").style.display = "block";
+  document.getElementById("post-submit").scrollIntoView({behavior:"smooth", block:"nearest"});
+
+  msg.textContent = recorded ? "Précommande enregistrée." : "Précommande prête à être envoyée.";
   msg.className = "form-msg ok";
   btn.disabled = false;
+});
+
+document.getElementById("copy-btn").addEventListener("click", async () => {
+  const ta = document.getElementById("order-text-fallback");
+  try{
+    await navigator.clipboard.writeText(ta.value);
+    document.getElementById("copy-btn").textContent = "Copié ✓";
+  }catch(err){
+    ta.select();
+    document.execCommand("copy");
+    document.getElementById("copy-btn").textContent = "Copié ✓";
+  }
+  setTimeout(()=>{ document.getElementById("copy-btn").textContent = "Copier le récapitulatif"; }, 2000);
 });
 
 loadCatalog();
