@@ -50,7 +50,7 @@ cliquer sur "Envoyer"). Pour que la commande soit **aussi** enregistrée
 automatiquement dans l'onglet "Prevente" :
 
 1. Vérifier que le Sheet a bien un onglet nommé **Prevente** avec en ligne 1 :
-   `Horodatage | Nom | Email | Téléphone | Détail commande | Total (€) | Note | Statut`
+   `Horodatage | Nom | Email | Téléphone | Détail commande | Total (€) | Créneau souhaité | Note | Statut`
 2. Ouvrir **Extensions > Apps Script** depuis le Sheet.
 3. Coller le contenu du fichier `apps-script.gs` fourni.
 4. **Déployer > Nouveau déploiement > Application Web** :
@@ -66,7 +66,28 @@ Une fois ce réglage fait, chaque précommande valide :
 - ouvre en complément un email pré-rempli côté client (garde-fou en cas de
   souci réseau).
 
-## 3. Publier le site
+## 3. Images d'exemple des jarres
+
+Un dossier `images/` est fourni avec une illustration JPEG par coloris
+(générées pour un rendu cohérent avec le design du site — ce sont des
+illustrations de secours, pas des photos réelles) :
+
+- `images/jarre-cfoc-celadon.jpg` — bleu céladon / porcelaine (générique CFOC)
+- `images/jarre-bordeaux.jpg`
+- `images/jarre-marron.jpg`
+- `images/jarre-vert.jpg`
+- `images/jarre-vert-ecru.jpg`
+- `images/jarre-noir.jpg`
+- `images/jarre-bleu.jpg`
+
+Pour les utiliser : déposez le dossier `images/` à côté de `index.html` dans
+votre dépôt GitHub Pages, puis dans la colonne **Image** de l'onglet
+catalogue, indiquez le chemin correspondant, par exemple :
+`https://gmoulard.github.io/operation-jarres/images/jarre-bordeaux.jpg`
+
+Remplacez-les par de vraies photos dès que possible.
+
+## 4. Publier le site
 
 `index.html` est autonome (HTML/CSS/JS en un seul fichier, sans dépendance
 serveur). Il peut être hébergé tel quel sur :

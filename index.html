@@ -333,6 +333,23 @@
         <input type="email" id="f-email" required>
       </div>
       <div class="full">
+        <label>Créneau de retrait souhaité</label>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+          <label style="display:flex;align-items:center;gap:8px;font-weight:400;font-size:0.9rem;">
+            <input type="radio" name="creneau" value="Samedi matin" style="width:auto;"> Samedi matin
+          </label>
+          <label style="display:flex;align-items:center;gap:8px;font-weight:400;font-size:0.9rem;">
+            <input type="radio" name="creneau" value="Samedi après-midi" style="width:auto;"> Samedi après-midi
+          </label>
+          <label style="display:flex;align-items:center;gap:8px;font-weight:400;font-size:0.9rem;">
+            <input type="radio" name="creneau" value="Dimanche matin" style="width:auto;"> Dimanche matin
+          </label>
+          <label style="display:flex;align-items:center;gap:8px;font-weight:400;font-size:0.9rem;">
+            <input type="radio" name="creneau" value="Dimanche après-midi" style="width:auto;"> Dimanche après-midi
+          </label>
+        </div>
+      </div>
+      <div class="full">
         <label for="f-note">Message (optionnel)</label>
         <textarea id="f-note" placeholder="Précisions, jour de retrait souhaité…"></textarea>
       </div>
@@ -363,6 +380,7 @@
     <p><b>Croix-Rouge française — Délégation territoriale des Yvelines</b><br>
     2 rue Galilée, 78280 Guyancourt — Vente au profit des actions locales de la Croix-Rouge</p>
     <p style="margin-top:10px;">Jarres de la marque CFOC — pré-vente du 19 au 20 septembre 2026</p>
+    <p style="margin-top:14px;font-size:0.65rem;opacity:0.35;letter-spacing:.02em;">v1.3.0 · généré le 29/07/2026 08:01 UTC</p>
   </div>
 </footer>
 
@@ -561,6 +579,8 @@ document.getElementById("order-form").addEventListener("submit", async (e) => {
   const email = document.getElementById("f-email").value.trim();
   const tel = document.getElementById("f-tel").value.trim();
   const note = document.getElementById("f-note").value.trim();
+  const creneauInput = document.querySelector('input[name="creneau"]:checked');
+  const creneau = creneauInput ? creneauInput.value : "Non précisé";
   const { text, total } = buildOrderText();
 
   btn.disabled = true;
@@ -574,7 +594,7 @@ document.getElementById("order-form").addEventListener("submit", async (e) => {
       await fetch(CONFIG.APPS_SCRIPT_URL, {
         method: "POST",
         headers: {"Content-Type":"text/plain;charset=utf-8"}, // évite le preflight CORS
-        body: JSON.stringify({ nom, email, telephone: tel, note, detail: text, total: total.toFixed(2) })
+        body: JSON.stringify({ nom, email, telephone: tel, note, creneau, detail: text, total: total.toFixed(2) })
       });
       recorded = true;
     }catch(err){ /* on continue avec le mailto en secours */ }
@@ -586,7 +606,7 @@ document.getElementById("order-form").addEventListener("submit", async (e) => {
   // téléphone sans application mail par défaut configurée (l'utilisateur a
   // alors l'impression que "l'envoi ne fonctionne pas").
   const subject = encodeURIComponent(`Précommande jarres CFOC — ${nom}`);
-  const fullText = `Nouvelle précommande\n\nNom : ${nom}\nEmail : ${email}\nTéléphone : ${tel}\n\nDétail :\n${text}\n\nTotal estimé : ${total.toFixed(2)} €\n\nNote : ${note || "—"}`;
+  const fullText = `Nouvelle précommande\n\nNom : ${nom}\nEmail : ${email}\nTéléphone : ${tel}\n\nCréneau de retrait souhaité : ${creneau}\n(la vente a lieu le samedi 19 et le dimanche 20 septembre 2026, matin et après-midi)\n\nDétail :\n${text}\n\nTotal estimé : ${total.toFixed(2)} €\n\nNote : ${note || "—"}`;
   const bodyEncoded = encodeURIComponent(fullText);
 
   document.getElementById("mailto-link").href = `mailto:${CONFIG.ORDER_EMAIL}?subject=${subject}&body=${bodyEncoded}`;

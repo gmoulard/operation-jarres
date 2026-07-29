@@ -12,7 +12,7 @@
  * 4. Copier l'URL du déploiement et la coller dans CONFIG.APPS_SCRIPT_URL
  *    du fichier index.html.
  * 5. Vérifier que l'onglet "Prevente" existe avec ces colonnes en ligne 1 :
- *    Horodatage | Nom | Email | Téléphone | Détail commande | Total (€) | Note | Statut
+ *    Horodatage | Nom | Email | Téléphone | Détail commande | Total (€) | Créneau souhaité | Note | Statut
  */
 
 const SPREADSHEET_ID = "1jp0kOLJOHfWfqg5cLhSsunFyHw63XtlI";
@@ -35,6 +35,7 @@ function doPost(e) {
       data.telephone || "",
       data.detail || "",
       data.total || "",
+      data.creneau || "",
       data.note || "",
       "Nouvelle"
     ]);
@@ -46,7 +47,8 @@ function doPost(e) {
         "Nouvelle précommande reçue via le site.\n\n" +
         "Nom : " + (data.nom || "") + "\n" +
         "Email : " + (data.email || "") + "\n" +
-        "Téléphone : " + (data.telephone || "") + "\n\n" +
+        "Téléphone : " + (data.telephone || "") + "\n" +
+        "Créneau de retrait souhaité : " + (data.creneau || "Non précisé") + "\n\n" +
         "Détail de la commande :\n" + (data.detail || "") + "\n\n" +
         "Total estimé : " + (data.total || "") + " €\n" +
         "Note : " + (data.note || "—")
@@ -74,6 +76,7 @@ function testDoPost() {
         telephone: "0600000000",
         detail: "- 2 x Jarre Guangxi | Grand modèle / Bleu céladon | 59.00 € pièce | sous-total 118.00 €",
         total: "118.00",
+        creneau: "Samedi matin",
         note: "Test depuis l'éditeur"
       })
     }
