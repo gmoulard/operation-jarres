@@ -359,9 +359,11 @@
 const CONFIG = {
   // ID du Google Sheet (déjà renseigné)
   SHEET_ID: "1jp0kOLJOHfWfqg5cLhSsunFyHw63XtlI",
-  // gid de l'onglet "catalogue". Si le catalogue ne se charge pas, ouvrez cet
-  // onglet dans Google Sheets et copiez le nombre visible après #gid= dans l'URL.
-  CATALOGUE_GID: "0",
+  // gid de l'onglet catalogue. Laisser VIDE : le site utilise alors le nom
+  // d'onglet ci-dessous. Ne renseigner un gid que si vous voulez forcer un
+  // onglet précis par son identifiant (visible après #gid= dans l'URL) —
+  // attention, un gid renseigné est prioritaire sur le nom d'onglet.
+  CATALOGUE_GID: "",
   CATALOGUE_SHEET_NAME: "catalogue",
   // URL du Web App Google Apps Script (voir apps-script.gs fourni),
   // à coller ici une fois le script déployé. Laisser vide pour désactiver
@@ -421,7 +423,10 @@ function parseCatalogRows(table){
 async function loadCatalog(){
   const status = document.getElementById("catalog-status");
   try{
-    const url = `https://docs.google.com/spreadsheets/d/${CONFIG.SHEET_ID}/gviz/tq?tqx=out:json&gid=${CONFIG.CATALOGUE_GID}&sheet=${encodeURIComponent(CONFIG.CATALOGUE_SHEET_NAME)}`;
+    let url = `https://docs.google.com/spreadsheets/d/${CONFIG.SHEET_ID}/gviz/tq?tqx=out:json`;
+    url += CONFIG.CATALOGUE_GID
+      ? `&gid=${CONFIG.CATALOGUE_GID}`
+      : `&sheet=${encodeURIComponent(CONFIG.CATALOGUE_SHEET_NAME)}`;
     const res = await fetch(url);
     if(!res.ok) throw new Error("HTTP " + res.status);
     const text = await res.text();
@@ -434,6 +439,7 @@ async function loadCatalog(){
     usingFallback = true;
     CATALOG = FALLBACK_CATALOG;
     status.textContent = "Catalogue de démonstration affiché (le Google Sheet n'est pas encore accessible publiquement — voir INSTRUCTIONS.md).";
+    console.error("Échec du chargement du catalogue Google Sheet :", err);
   }
   populateFilters();
   renderCatalog();
