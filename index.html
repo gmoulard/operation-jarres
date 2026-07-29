@@ -229,25 +229,7 @@
       </div>
     </div>
     <div class="jar-art">
-      <svg class="jar-svg" viewBox="0 0 220 300" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="110" cy="284" rx="58" ry="10" fill="#00000014"/>
-        <path d="M78 60 C60 90 52 130 52 170 C52 225 76 262 110 262 C144 262 168 225 168 170 C168 130 160 90 142 60 Z" fill="#F3F7F8" stroke="#2C5B70" stroke-width="2"/>
-        <path d="M78 60 C60 90 52 130 52 170 C52 225 76 262 110 262 C144 262 168 225 168 170 C168 130 160 90 142 60 Z" fill="none" stroke="#2C5B70" stroke-width="1" opacity=".4"/>
-        <path d="M70 100 C90 90 130 90 150 100" fill="none" stroke="#2C5B70" stroke-width="2" opacity=".55"/>
-        <path d="M62 150 C86 138 134 138 158 150" fill="none" stroke="#2C5B70" stroke-width="2" opacity=".55"/>
-        <path d="M58 200 C84 190 136 190 162 200" fill="none" stroke="#2C5B70" stroke-width="2" opacity=".55"/>
-        <circle cx="95" cy="120" r="4" fill="#2C5B70" opacity=".5"/>
-        <circle cx="132" cy="175" r="5" fill="#2C5B70" opacity=".4"/>
-        <circle cx="90" cy="225" r="3.5" fill="#2C5B70" opacity=".5"/>
-        <rect x="88" y="38" width="44" height="26" rx="4" fill="#F3F7F8" stroke="#2C5B70" stroke-width="2"/>
-        <ellipse cx="110" cy="38" rx="22" ry="7" fill="#F3F7F8" stroke="#2C5B70" stroke-width="2"/>
-        <ellipse cx="110" cy="30" rx="14" ry="6" fill="#F3F7F8" stroke="#2C5B70" stroke-width="2"/>
-        <g transform="translate(150,150) rotate(18)">
-          <path d="M0 0 L34 0 L34 44 L17 34 L0 44 Z" fill="#E2001A"/>
-          <text x="17" y="20" font-family="Fraunces, serif" font-size="9" fill="#fff" text-anchor="middle">Pré-vente</text>
-          <text x="17" y="30" font-family="Fraunces, serif" font-size="9" fill="#fff" text-anchor="middle">solidaire</text>
-        </g>
-      </svg>
+      <img src="jarre.jpg" alt="Jarre CFOC" class="jar-svg" style="border-radius:8px;object-fit:cover;">
     </div>
   </div>
 </section>
@@ -408,10 +390,13 @@ const CONFIG = {
 /* Exemple de secours si le Sheet n'est pas accessible publiquement.
    Remplacé automatiquement dès que le chargement du Google Sheet réussit. */
 const FALLBACK_CATALOG = [
-  {id:"DEMO-1", nom:"Jarre Guangxi", taille:"Grand modèle (H45cm)", poids:"6.2 kg", couleur:"Bleu céladon", prix:59, stock:8, image:""},
-  {id:"DEMO-2", nom:"Jarre Yunnan", taille:"Moyen modèle (H32cm)", poids:"3.8 kg", couleur:"Blanc craquelé", prix:42, stock:10, image:""},
-  {id:"DEMO-3", nom:"Jarre Fujian", taille:"Petit modèle (H22cm)", poids:"1.9 kg", couleur:"Vert jade", prix:29, stock:12, image:""},
-  {id:"DEMO-4", nom:"Jarre Sichuan", taille:"Grand modèle (H48cm)", poids:"7.1 kg", couleur:"Bleu nuit", prix:65, stock:5, image:""},
+  {id:"DEMO-1", nom:"Jarre Guangxi", taille:"Grand modèle (H45cm)", poids:"6.2 kg", couleur:"Bleu céladon", prix:59, stock:8, image:"jarre-cfoc-celadon.jpg"},
+  {id:"DEMO-2", nom:"Jarre Yunnan", taille:"Moyen modèle (H32cm)", poids:"3.8 kg", couleur:"Bordeaux", prix:42, stock:10, image:"jarre-bordeaux.jpg"},
+  {id:"DEMO-3", nom:"Jarre Fujian", taille:"Petit modèle (H22cm)", poids:"1.9 kg", couleur:"Vert", prix:29, stock:12, image:"jarre-vert.jpg"},
+  {id:"DEMO-4", nom:"Jarre Sichuan", taille:"Grand modèle (H48cm)", poids:"7.1 kg", couleur:"Noir", prix:65, stock:5, image:"jarre-noir.jpg"},
+  {id:"DEMO-5", nom:"Jarre Hunan", taille:"Moyen modèle (H35cm)", poids:"4.1 kg", couleur:"Marron", prix:48, stock:7, image:"jarre-marron.jpg"},
+  {id:"DEMO-6", nom:"Jarre Zhejiang", taille:"Petit modèle (H24cm)", poids:"2.2 kg", couleur:"Vert écru", prix:32, stock:9, image:"jarre-vert-ecru.jpg"},
+  {id:"DEMO-7", nom:"Jarre Anhui", taille:"Moyen modèle (H30cm)", poids:"3.5 kg", couleur:"Bleu", prix:39, stock:6, image:"jarre-bleu.jpg"},
 ];
 
 let CATALOG = [];
