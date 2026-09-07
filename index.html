@@ -219,7 +219,7 @@
       <h1>Précommandez vos <em>jarres CFOC</em>,<br>soutenez la Croix-Rouge des Yvelines</h1>
       <p class="lead">Une sélection de jarres en grès et porcelaine CFOC — tailles, poids et coloris variés — proposée en pré-vente exclusive au profit des actions locales de la Croix-Rouge française. Réservez en ligne, retirez et réglez sur place.</p>
       <div class="hero-facts">
-        <div class="fact"><b>19 &amp; 20 sept. 2026</b><span>Jours de vente et de retrait</span></div>
+        <div class="fact"><b>26 septembre 2026</b><span>Jours de vente et de retrait</span></div>
         <div class="fact"><b>Guyancourt (78)</b><span>DT Yvelines · 2 rue Galilée</span></div>
         <div class="fact"><b>100%</b><span>reversés aux actions locales</span></div>
       </div>
@@ -234,40 +234,12 @@
   </div>
 </section>
 
-<section class="steps">
-  <div class="wrap">
-    <h2>Comment participer</h2>
-    <p class="sub">Trois étapes simples entre votre réservation et le retrait de vos jarres.</p>
-    <div class="step-grid">
-      <div class="step">
-        <div class="n">Étape 1</div>
-        <h3>Choisissez vos jarres</h3>
-        <p>Parcourez le catalogue CFOC : taille, poids et couleur sont précisés pour chaque modèle.</p>
-      </div>
-      <div class="step">
-        <div class="n">Étape 2</div>
-        <h3>Précommandez en ligne</h3>
-        <p>Renseignez vos coordonnées, votre précommande est transmise à l'équipe organisatrice.</p>
-      </div>
-      <div class="step">
-        <div class="n">Étape 3</div>
-        <h3>Retirez &amp; réglez sur place</h3>
-        <p>Rendez-vous les 19 ou 20 septembre 2026 à la DT Yvelines pour récupérer vos jarres et régler votre commande.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="catalog" id="catalogue">
   <div class="wrap">
     <div class="catalog-head">
       <div>
         <h2>Catalogue des jarres CFOC</h2>
-        <p style="color:var(--muted);margin-top:6px;">Toutes les jarres sont de la marque CFOC. Stock limité et non garanti avant confirmation.</p>
-      </div>
-      <div class="filters">
-        <select id="filter-color"><option value="">Couleur</option></select>
-        <select id="filter-size"><option value="">Taille</option></select>
+        <p style="color:var(--muted);margin-top:6px;">Toutes les jarres proviennent d'un don du <a href=https://www.printemps.com/>Printemps</a>. Stock limité !!!</p>
       </div>
     </div>
     <p id="catalog-status"></p>
@@ -292,70 +264,6 @@
   </div>
 </section>
 
-<section class="order" id="commande">
-  <div class="order-wrap">
-    <h2>Ma précommande</h2>
-    <p class="sub">Vérifiez votre sélection puis renseignez vos coordonnées pour valider votre précommande.</p>
-
-    <div class="order-summary" id="order-summary">
-      <p class="empty-cart">Votre sélection est vide — ajoutez des jarres depuis le catalogue.</p>
-    </div>
-
-    <form class="contact" id="order-form">
-      <div>
-        <label for="f-nom">Nom et prénom</label>
-        <input type="text" id="f-nom" required>
-      </div>
-      <div>
-        <label for="f-tel">Téléphone</label>
-        <input type="tel" id="f-tel" required>
-      </div>
-      <div class="full">
-        <label for="f-email">Email</label>
-        <input type="email" id="f-email" required>
-      </div>
-      <div class="full">
-        <label>Créneau de retrait souhaité</label>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-          <label style="display:flex;align-items:center;gap:8px;font-weight:400;font-size:0.9rem;">
-            <input type="radio" name="creneau" value="Samedi matin" style="width:auto;"> Samedi matin
-          </label>
-          <label style="display:flex;align-items:center;gap:8px;font-weight:400;font-size:0.9rem;">
-            <input type="radio" name="creneau" value="Samedi après-midi" style="width:auto;"> Samedi après-midi
-          </label>
-          <label style="display:flex;align-items:center;gap:8px;font-weight:400;font-size:0.9rem;">
-            <input type="radio" name="creneau" value="Dimanche matin" style="width:auto;"> Dimanche matin
-          </label>
-          <label style="display:flex;align-items:center;gap:8px;font-weight:400;font-size:0.9rem;">
-            <input type="radio" name="creneau" value="Dimanche après-midi" style="width:auto;"> Dimanche après-midi
-          </label>
-        </div>
-      </div>
-      <div class="full">
-        <label for="f-note">Message (optionnel)</label>
-        <textarea id="f-note" placeholder="Précisions, jour de retrait souhaité…"></textarea>
-      </div>
-      <div class="submit-row">
-        <button type="submit" class="btn btn-primary" id="submit-btn">Envoyer ma précommande</button>
-        <span class="form-msg" id="form-msg"></span>
-      </div>
-    </form>
-
-    <div id="post-submit" style="display:none;margin-top:22px;border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;background:var(--cream);">
-      <p id="post-submit-msg" style="margin:0 0 12px;font-weight:600;"></p>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;">
-        <a id="mailto-link" class="btn btn-primary" href="#" style="text-decoration:none;">📧 Ouvrir mon application mail</a>
-        <a id="gmail-web-link" class="btn btn-ghost" href="#" target="_blank" rel="noopener" style="text-decoration:none;">Ouvrir Gmail (web)</a>
-        <button type="button" class="btn btn-ghost" id="copy-btn">Copier le récapitulatif</button>
-      </div>
-      <p style="font-size:0.82rem;color:var(--muted);margin-top:12px;">
-        Si aucun bouton ne s'ouvre depuis votre téléphone (pas d'application mail configurée), copiez le récapitulatif et envoyez-le manuellement à
-        <strong id="post-submit-email"></strong>.
-      </p>
-      <textarea id="order-text-fallback" readonly style="width:100%;min-height:120px;margin-top:10px;font-family:monospace;font-size:0.8rem;" onclick="this.select()"></textarea>
-    </div>
-  </div>
-</section>
 
 <footer>
   <div class="wrap">
