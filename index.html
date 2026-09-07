@@ -67,7 +67,30 @@
     font-weight:600;font-size:0.85rem;cursor:pointer;
   }
   .cart-pill span.count{background:var(--red);border-radius:999px;padding:1px 8px;font-size:0.75rem;}
+/* Overlay pour la lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  cursor: pointer;
+}
 
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
   /* Hero */
   .hero{
     background: linear-gradient(180deg, #fff 0%, var(--cream) 100%);
@@ -738,6 +761,28 @@ document.getElementById("copy-btn").addEventListener("click", async () => {
 });
 
 loadCatalog();
+</script>
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <img id="lightbox-img" src="" alt="">
+</div>
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  document.querySelectorAll('.product-card img').forEach(img => {
+    img.style.cursor = 'pointer';
+    img.addEventListener('click', () => {
+      const src = img.getAttribute('src');
+      lightboxImg.src = src;
+      lightbox.classList.add('active');
+      lightbox.setAttribute('aria-hidden', 'false');
+    });
+  });
+
+  lightbox.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+    lightbox.setAttribute('aria-hidden', 'true');
+  });
 </script>
 </body>
 </html>
