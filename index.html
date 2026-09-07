@@ -167,6 +167,10 @@
   margin: 12px 0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
   overflow: hidden;
+    /* Taille dynamique */
+  width: 100%;          /* prend toute la largeur de son conteneur */
+  box-sizing: border-box;
+  min-width: 0;         /* important en flex/grid pour éviter les débordements */
 }
 
 
