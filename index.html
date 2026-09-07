@@ -204,11 +204,7 @@
     <nav class="links">
       <a href="#catalogue">Catalogue</a>
       <a href="#infos">Infos pratiques</a>
-      <a href="#commande">Précommander</a>
     </nav>
-    <button class="cart-pill" onclick="document.getElementById('commande').scrollIntoView({behavior:'smooth'})">
-      🧺 Ma sélection <span class="count" id="nav-count">0</span>
-    </button>
   </div>
 </header>
 
@@ -332,11 +328,6 @@ function renderCatalog(){
         <div class="card-meta">${[item.taille,item.poids,item.couleur].filter(Boolean).join(" · ")}</div>
         <div class="card-foot">
           <span class="price">${item.prix ? item.prix.toFixed(2)+" €" : "—"}</span>
-          <div class="qty">
-            <button type="button" onclick="changeQty('${item.id}',-1)" ${soldOut?'disabled':''}>−</button>
-            <input type="text" readonly value="${qty}" id="qty-${item.id}">
-            <button type="button" onclick="changeQty('${item.id}',1)" ${soldOut?'disabled':''}>+</button>
-          </div>
         </div>
       </div>
     </div>`;
