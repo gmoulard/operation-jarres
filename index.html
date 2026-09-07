@@ -129,6 +129,24 @@
     background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
     overflow:hidden;display:flex;flex-direction:column;
   }
+ .product-card img {
+  height: 50px;      /* hauteur fixe */
+  width: auto;       /* largeur proportionnelle à la hauteur */
+  display: block;
+  border-radius: 5px;
+}
+ 
+.product-card {
+  background-color: #eeeeee; /* fond gris pour isoler chaque carte */
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+  padding: 12px;
+  margin: 12px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+
   .card-img{aspect-ratio:1/1;background:var(--porcelain-blue-light);display:flex;align-items:center;justify-content:center;overflow:hidden;}
   .card-img img{width:100%;height:100%;object-fit:cover;}
   .card-body{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1;}
@@ -256,22 +274,9 @@
     <div class="product-grid">
 
       <article class="product-card">
-        <img src="jarre-vert.jpg" alt="Jarre CFOC verte, 90 × 50 cm">
-        <div class="product-body">
-          <span class="product-tag">CFOC · J-01</span>
-          <h3>Jarre CFOC Celadon</h3>
-          <div class="product-meta">H65 × L50 cm </div>
-          <div class="product-price">190 €</div>
-          <div class="stock">Vendu</div>
-        </div>
-      </article>
-
-
-      <article class="product-card">
         <img src="photo/DT01.jpeg" >
         <div class="product-body">
-          <span class="product-tag">CFOC · J-15</span>
-          <h3>Jarre CFOC Celadon</h3>
+          <span class="product-tag">CFOC · dt01</span><h3>Jarre CFOC Celadon</h3>
           <div class="product-meta">H65 × L50 cm </div>
           <div class="product-price">190 €</div>
           <div class="stock">Vendu</div>
