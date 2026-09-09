@@ -1,3 +1,8 @@
+setInterval(function () {
+  window.location.reload();
+}, 3 * 60 * 1000);
+
+
 document.addEventListener('DOMContentLoaded', function () {
   var grid = document.getElementById('product-grid');
 
