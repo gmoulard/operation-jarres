@@ -230,54 +230,6 @@
       </div>
     </div>
 
-    // Lightbox
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-
-document.querySelectorAll('.product-card img').forEach(img => {
-  img.addEventListener('click', () => {
-    lightboxImg.src = img.getAttribute('src');
-    lightbox.classList.add('active');
-    lightbox.setAttribute('aria-hidden', 'false');
-  });
-});
-
-lightbox.addEventListener('click', () => {
-  lightbox.classList.remove('active');
-  lightbox.setAttribute('aria-hidden', 'true');
-});
-
-// Colorisation des statuts
-document.querySelectorAll('.stock').forEach(el => {
-  const txt = el.textContent.trim().toLowerCase();
-  if (txt === 'disponible') el.classList.add('is-disponible');
-  else if (txt === 'vendu')  el.classList.add('is-vendu');
-});
-
-// Filtres par statut
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-
-    // Mise à jour du bouton actif
-    document.querySelectorAll('.filter-btn').forEach(b => {
-      b.classList.remove('active', 'active-disponible', 'active-vendu');
-    });
-    const filter = btn.dataset.filter;
-    btn.classList.add('active');
-    if (filter === 'disponible') btn.classList.add('active-disponible');
-    if (filter === 'vendu')      btn.classList.add('active-vendu');
-
-    // Affichage / masquage des cartes
-    document.querySelectorAll('.product-card').forEach(card => {
-      const stockTxt = card.querySelector('.stock')?.textContent.trim().toLowerCase() ?? '';
-      if (filter === 'tous' || stockTxt === filter) {
-        card.classList.remove('hidden');
-      } else {
-        card.classList.add('hidden');
-      }
-    });
-  });
-});
     <div class="product-grid">
 
       <article class="product-card">
@@ -617,6 +569,55 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
     if (txt === 'disponible') el.classList.add('is-disponible');
     else if (txt === 'vendu') el.classList.add('is-vendu');
   });
+
+// Lightbox
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+document.querySelectorAll('.product-card img').forEach(img => {
+  img.addEventListener('click', () => {
+    lightboxImg.src = img.getAttribute('src');
+    lightbox.classList.add('active');
+    lightbox.setAttribute('aria-hidden', 'false');
+  });
+});
+
+lightbox.addEventListener('click', () => {
+  lightbox.classList.remove('active');
+  lightbox.setAttribute('aria-hidden', 'true');
+});
+
+// Colorisation des statuts
+document.querySelectorAll('.stock').forEach(el => {
+  const txt = el.textContent.trim().toLowerCase();
+  if (txt === 'disponible') el.classList.add('is-disponible');
+  else if (txt === 'vendu')  el.classList.add('is-vendu');
+});
+
+// Filtres par statut
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+
+    // Mise à jour du bouton actif
+    document.querySelectorAll('.filter-btn').forEach(b => {
+      b.classList.remove('active', 'active-disponible', 'active-vendu');
+    });
+    const filter = btn.dataset.filter;
+    btn.classList.add('active');
+    if (filter === 'disponible') btn.classList.add('active-disponible');
+    if (filter === 'vendu')      btn.classList.add('active-vendu');
+
+    // Affichage / masquage des cartes
+    document.querySelectorAll('.product-card').forEach(card => {
+      const stockTxt = card.querySelector('.stock')?.textContent.trim().toLowerCase() ?? '';
+      if (filter === 'tous' || stockTxt === filter) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  });
+});  
 </script>
 </body>
 </html>
