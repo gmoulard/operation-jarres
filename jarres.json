@@ -1,7 +1,7 @@
 [
   { "image": "photo/DT01.jpeg", "ref": "Référence CFOC · dt01", "nom": "Jarre CFOC Celadon", "dimensions": "H65 × L50 cm", "prix": "190 €", "statut": "Vendu" },
   { "image": "photo/DT02.jpeg", "ref": "Référence CFOC · dt02", "nom": "Jarre CFOC Celadon", "dimensions": "H65 × L50 cm", "prix": "190 €", "statut": "Vendu" },
-  { "image": "photo/DT03.jpeg", "ref": "Référence CFOC · dt03", "nom": "Jarre CFOC Celadon", "dimensions": "H65 × L50 cm", "prix": "190 €", "statut": "tttt" },
+  { "image": "photo/DT03.jpeg", "ref": "Référence CFOC · dt03", "nom": "Jarre CFOC Celadon", "dimensions": "H65 × L50 cm", "prix": "190 €", "statut": "Disponible" },
   { "image": "photo/DT04.jpeg", "ref": "Référence CFOC · dt04", "nom": "Jarre CFOC Celadon", "dimensions": "H65 × L50 cm", "prix": "190 €", "statut": "Vendu" },
   { "image": "photo/DT05.jpeg", "ref": "Référence CFOC · dt05", "nom": "Jarre CFOC Celadon", "dimensions": "H65 × L50 cm", "prix": "190 €", "statut": "Vendu" },
   { "image": "photo/DT06.jpeg", "ref": "Référence CFOC · dt06", "nom": "Jarre CFOC Bordeaux reflet vert", "dimensions": "H99 × L43 cm", "prix": "250 €", "statut": "Vendu" },
