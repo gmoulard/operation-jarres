@@ -63,10 +63,11 @@ document.addEventListener('DOMContentLoaded', function () {
       Object.values(checkboxes).forEach(function (cb) {
         cb.addEventListener('change', appliquerFiltre);
       });
+      appliquerFiltre(); // applique le filtre dès le chargement initial
     })
     .catch(function (err) {
       console.error('Erreur de chargement de jarres.json :', err);
     });
 });
 
-appliquerFiltre(); // applique le filtre dès le chargement initial
+
