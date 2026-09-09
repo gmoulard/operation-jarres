@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         var cb = document.createElement('input');
         cb.type = 'checkbox';
-        cb.checked = true;
+        cb.checked = statut !== 'Vendu';   // décoché par défaut pour "Vendu"
         cb.dataset.statut = statut;
 
         label.appendChild(cb);
@@ -68,3 +68,5 @@ document.addEventListener('DOMContentLoaded', function () {
       console.error('Erreur de chargement de jarres.json :', err);
     });
 });
+
+appliquerFiltre(); // applique le filtre dès le chargement initial
