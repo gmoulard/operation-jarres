@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     .then(function (res) { return res.json(); })
     .then(function (jarres) {
       grid.innerHTML = jarres.map(function (j) {
+        var statutClasse = j.statut === 'Disponible' ? 'is-disponible' : 'is-vendu';
         return (
           '<article class="product-card" data-jarre-status="' + j.statut + '">' +
             '<img src="' + j.image + '" alt="' + j.nom + '">' +
@@ -18,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
               '<h3>' + j.nom + '</h3>' +
               '<div class="product-meta">' + j.dimensions + '</div>' +
               '<div class="product-price">' + j.prix + '</div>' +
-              '<div class="stock">' + j.statut + '</div>' +
+              '<div class="stock ' + statutClasse + '">' + j.statut + '</div>' +
             '</div>' +
           '</article>'
         );
