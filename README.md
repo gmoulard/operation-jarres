@@ -1,28 +1,64 @@
-# operation-jarres
+# Opération Jarres
 
-Site de pré-vente des jarres CFOC au profit de la **Croix-Rouge française — Délégation territoriale des Yvelines**.
+Site statique de présentation et de vente des jarres données par le Printemps au
+profit de la **Croix-Rouge française — Délégation territoriale des Yvelines**.
 
-Les visiteurs parcourent le catalogue, composent leur sélection et soumettent une précommande. Le règlement et le retrait se font sur place les **19 et 20 septembre 2026** à Guyancourt (78).
+Le site est conçu pour être publié directement avec **GitHub Pages**. Il ne
+nécessite ni serveur, ni base de données, ni étape de compilation.
 
-## Fichiers
+## Version actuelle
 
-| Fichier | Rôle |
-|---|---|
-| `index.html` | Site complet (HTML/CSS/JS, aucune dépendance serveur) |
-| `apps-script.gs` | Script Google Apps Script à déployer pour enregistrer les précommandes dans le Google Sheet |
-| `INSTRUCTIONS.md` | Guide de mise en service complet |
-| `jarre-*.jpg` | Illustrations des coloris disponibles |
+- `index.html` contient l'interface complète : HTML, CSS et structure de la page.
+- `catalogue.js` charge le catalogue au démarrage et crée les fiches produits.
+- `jarres.json` contient les données du catalogue : image, référence, nom,
+	dimensions, prix et statut (`Disponible` ou `Vendu`).
+- `photo/` contient les photographies référencées dans `jarres.json`.
+- Un filtre permet d'afficher ou de masquer les produits selon leur statut.
+- Le catalogue est rechargé automatiquement toutes les trois minutes afin de
+	prendre en compte les modifications publiées dans le dépôt.
 
-## Mise en service rapide
+## Publier avec GitHub Pages
 
-1. **Rendre le Google Sheet public** (lecture seule) — l'onglet `catalogue` doit contenir les colonnes `ID | Nom | Taille | Poids | Couleur | Prix | Stock | Image`.
-2. **Déployer `apps-script.gs`** depuis *Extensions > Apps Script* du Sheet, puis coller l'URL du déploiement dans `CONFIG.APPS_SCRIPT_URL` de `index.html`.
-3. **Publier `index.html`** sur GitHub Pages, Netlify, Vercel ou tout hébergement statique.
+1. Pousser le dépôt sur GitHub, avec `index.html` à la racine du dépôt.
+2. Ouvrir **Settings > Pages** dans le dépôt GitHub.
+3. Dans **Build and deployment**, choisir **Deploy from a branch**.
+4. Sélectionner la branche `main` et le dossier `/ (root)`, puis cliquer sur
+	 **Save**.
+5. Attendre la fin du déploiement. GitHub Pages fournira l'adresse publique du
+	 site, généralement sous la forme `https://<utilisateur>.github.io/<depot>/`.
 
-> Voir [`INSTRUCTIONS.md`](INSTRUCTIONS.md) pour le détail complet de chaque étape.
+GitHub Pages publie directement les fichiers statiques du dépôt. Chaque
+modification envoyée sur la branche publiée déclenche automatiquement une
+nouvelle mise en ligne.
 
-## Fonctionnement
+## Mettre à jour le catalogue
 
-- Le catalogue est lu en direct depuis le Google Sheet à chaque chargement de page (aucune republication nécessaire après une modification du Sheet).
-- Si le Sheet n'est pas accessible, un catalogue de démonstration s'affiche automatiquement.
-- Chaque précommande validée : enregistre une ligne dans l'onglet `Prevente` du Sheet, envoie un email de notification, et propose un email pré-rempli côté client en secours.
+Modifier uniquement `jarres.json` pour ajouter, retirer ou actualiser une
+jarre. Chaque entrée suit cette structure :
+
+```json
+{
+	"image": "photo/DT01.jpeg",
+	"ref": "Référence CFOC · dt01",
+	"nom": "Jarre CFOC Celadon",
+	"dimensions": "H65 × L50 cm",
+	"prix": "190 €",
+	"statut": "Disponible"
+}
+```
+
+Les chemins d'image sont relatifs à la racine du dépôt. Après avoir modifié le
+JSON et les images nécessaires, valider puis pousser les changements sur
+`main` : GitHub Pages republiera le site automatiquement.
+
+## Tester localement
+
+Comme le catalogue est chargé avec `fetch`, il faut utiliser un petit serveur
+HTTP plutôt que d'ouvrir `index.html` directement dans le navigateur. Par
+exemple :
+
+```bash
+python3 -m http.server 8000
+```
+
+Puis ouvrir <http://localhost:8000/>.
