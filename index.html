@@ -546,78 +546,62 @@
 <div class="lightbox" id="lightbox" aria-hidden="true">
   <img id="lightbox-img" src="" alt="">
 </div>
-<script>
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
 
-  document.querySelectorAll('.product-card img').forEach(img => {
-    img.addEventListener('click', () => {
-      const src = img.getAttribute('src');
-      lightboxImg.src = src;
-      lightbox.classList.add('active');
-      lightbox.setAttribute('aria-hidden', 'false');
-    });
-  });
-
-  lightbox.addEventListener('click', () => {
-    lightbox.classList.remove('active');
-    lightbox.setAttribute('aria-hidden', 'true');
-  });
-
-  document.querySelectorAll('.stock').forEach(el => {
-    const txt = el.textContent.trim().toLowerCase();
-    if (txt === 'disponible') el.classList.add('is-disponible');
-    else if (txt === 'vendu') el.classList.add('is-vendu');
-  });
-
-// Lightbox
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-
-document.querySelectorAll('.product-card img').forEach(img => {
-  img.addEventListener('click', () => {
-    lightboxImg.src = img.getAttribute('src');
-    lightbox.classList.add('active');
-    lightbox.setAttribute('aria-hidden', 'false');
-  });
-});
-
-lightbox.addEventListener('click', () => {
-  lightbox.classList.remove('active');
-  lightbox.setAttribute('aria-hidden', 'true');
-});
-
-// Colorisation des statuts
-document.querySelectorAll('.stock').forEach(el => {
-  const txt = el.textContent.trim().toLowerCase();
-  if (txt === 'disponible') el.classList.add('is-disponible');
-  else if (txt === 'vendu')  el.classList.add('is-vendu');
-});
-
-// Filtres par statut
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-
-    // Mise à jour du bouton actif
-    document.querySelectorAll('.filter-btn').forEach(b => {
-      b.classList.remove('active', 'active-disponible', 'active-vendu');
-    });
-    const filter = btn.dataset.filter;
-    btn.classList.add('active');
-    if (filter === 'disponible') btn.classList.add('active-disponible');
-    if (filter === 'vendu')      btn.classList.add('active-vendu');
-
-    // Affichage / masquage des cartes
-    document.querySelectorAll('.product-card').forEach(card => {
-      const stockTxt = card.querySelector('.stock')?.textContent.trim().toLowerCase() ?? '';
-      if (filter === 'tous' || stockTxt === filter) {
-        card.classList.remove('hidden');
-      } else {
-        card.classList.add('hidden');
-      }
-    });
-  });
-});  
-</script>
 </body>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var cards = Array.from(document.querySelectorAll('.product-card'));
+  if (cards.length === 0) return;
+
+  cards.forEach(function (card) {
+    var stockEl = card.querySelector('.stock');
+    card.dataset.jarreStatus = stockEl ? stockEl.textContent.trim() : '';
+  });
+
+  var statuts = Array.from(new Set(cards.map(function (c) { return c.dataset.jarreStatus; })))
+    .filter(function (s) { return s !== ''; });
+
+  var wrapper = document.createElement('div');
+  wrapper.style.cssText = 'display:flex;flex-wrap:wrap;gap:1em;align-items:center;margin:1em 0;';
+
+  var titre = document.createElement('span');
+  titre.textContent = 'Filtrer par statut : ';
+  titre.style.fontWeight = 'bold';
+  wrapper.appendChild(titre);
+
+  var checkboxes = {};
+  statuts.forEach(function (statut) {
+    var label = document.createElement('label');
+    label.style.cssText = 'display:inline-flex;align-items:center;gap:.4em;cursor:pointer;';
+
+    var cb = document.createElement('input');
+    cb.type = 'checkbox';
+    cb.checked = true;
+    cb.dataset.statut = statut;
+
+    label.appendChild(cb);
+    label.appendChild(document.createTextNode(statut));
+    wrapper.appendChild(label);
+    checkboxes[statut] = cb;
+  });
+
+  var grid = document.querySelector('.product-grid');
+  grid.parentElement.insertBefore(wrapper, grid);
+
+  function appliquerFiltre() {
+    var actifs = statuts.filter(function (s) { return checkboxes[s].checked; });
+    cards.forEach(function (card) {
+      card.style.display = actifs.indexOf(card.dataset.jarreStatus) !== -1 ? '' : 'none';
+    });
+  }
+
+  Object.values(checkboxes).forEach(function (cb) {
+    cb.addEventListener('change', appliquerFiltre);
+  });
+});
+</script>
+
+
 </html>
