@@ -27,6 +27,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
       var cards = Array.from(grid.querySelectorAll('.product-card'));
       var statuts = Array.from(new Set(cards.map(function (c) { return c.dataset.jarreStatus; })));
+      var counts = {};
+
+      statuts.forEach(function (statut) {
+        counts[statut] = 0;
+      });
+      cards.forEach(function (card) {
+        counts[card.dataset.jarreStatus] = (counts[card.dataset.jarreStatus] || 0) + 1;
+      });
 
       var wrapper = document.createElement('div');
       wrapper.style.cssText = 'display:flex;flex-wrap:wrap;gap:1em;align-items:center;margin:1em 0;';
@@ -47,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
         cb.dataset.statut = statut;
 
         label.appendChild(cb);
-        label.appendChild(document.createTextNode(statut));
+        label.appendChild(document.createTextNode(statut + ' (' + counts[statut] + ')'));
         wrapper.appendChild(label);
         checkboxes[statut] = cb;
       });
