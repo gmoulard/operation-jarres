@@ -12,3 +12,5 @@ L'opération
       - 3 103€ a la DT des Yvelines
       -   620€ a l'UL de Virroflay
       - 2 600€ à l'hopital des enfants de Margency
+
+  - avoir fiscale 31 500€
