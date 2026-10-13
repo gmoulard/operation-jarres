@@ -11,4 +11,4 @@ L'opération
   - mise en place de l'opération commercial qui rapporte a la CrF
       - 3 103€ a la DT des Yvelines
       -   620€ a l'UL de Virroflay
-      - 4 600€ à l'hopital des enfants de Margency
+      - 2 600€ à l'hopital des enfants de Margency
