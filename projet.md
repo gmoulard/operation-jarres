@@ -25,4 +25,7 @@ Réalisations
 - Films de présenations du projet et post instagram
 - Site de la vente (vitrine sans payement)
 
-   
+
+
+
+style: [page](./page.html).
