@@ -16,8 +16,8 @@ L'opération
   - Mise en place de l'opération commercial qui rapporte a la CrF
       - 3 183€ a la DT des Yvelines
       -   620€ a l'UL de Virroflay
-      - 10 * 350 € = 3 500€ à l'hopital des enfants de Margency
-  - Reste 9 Jarres pour la décoration de l'hopital (Hopital, maison des parents, chateau et son parc)
+      - 10 * 350 € = 3 500€ à l'hopital des enfants de Margency (4nico,2phil,1guigui,1tom,1jack,1jef)
+  - Reste 7 Jarres pour la décoration de l'hopital (Hopital, maison des parents, chateau et son parc)
 - Avoir fiscale 31 500€ pour le Printemps
 
 #### Réalisations
