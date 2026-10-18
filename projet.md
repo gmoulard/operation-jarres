@@ -14,9 +14,9 @@ L'opération
       - cout de 380€ pour l'hopital des enfants de Margency
       - cout de 300€ pour le destockage
   - Mise en place de l'opération commercial qui rapporte a la CrF
-      - 3 103€ a la DT des Yvelines
+      - 3 183€ a la DT des Yvelines
       -   620€ a l'UL de Virroflay
-      - 8 * 350 € = 2 800€ à l'hopital des enfants de Margency
+      - 10 * 350 € = 3 500€ à l'hopital des enfants de Margency
   - Reste 9 Jarres pour la décoration de l'hopital (Hopital, maison des parents, chateau et son parc)
 - Avoir fiscale 31 500€ pour le Printemps
 
