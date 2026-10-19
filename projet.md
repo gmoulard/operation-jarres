@@ -20,10 +20,27 @@ L'opération
   - Reste 7 Jarres pour la décoration de l'hopital (Hopital, maison des parents, chateau et son parc)
 - Avoir fiscale 31 500€ pour le Printemps
 
-#### Réalisations
-- Vente par la DT78
-- Films de présenations du projet et post instagram
-- Site de la vente (vitrine sans payement)
+### Roles
+- donateur : Printemps haussmann
+- Contacte donateur : Raphael d'argentré
+- Contacte croix-rouge : Guillaume Moulard
+- Contacte receveur DT : Jean Heald
+- Contacte hôpital Margency : 
+
+
+#### étapes projet
+(x) Valorisation de la propostion de don
+(x) Préparation et validation du don
+(x) Transport
+(x) Livraison 
+(x) Films de présenations du projet et post instagram
+(x) Site de la vente (vitrine sans payement)
+(x) Livraison DT78
+(x) Gestion de moyen de paiement 
+(x) Vente par la DT78
+(x) Suivie de payements
+(x) Vente a l'hopital
+
 
 
 
