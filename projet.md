@@ -39,7 +39,7 @@ L'opération
 - [x] Vente par la DT78
 - [x] Suivie de payements
 - [X] Vente a l'hopital
-- [] REX Projet
+- [ ] REX Projet
 
 #### irritants identifiés
 - Couts logistique pour le transport 
