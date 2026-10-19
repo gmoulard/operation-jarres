@@ -28,18 +28,18 @@ L'opération
 - Contacte bénéficière hôpital Margency : Fatima Oudghiri Directrice et Thierry Barthelemy Adjoint
 
 ##### étapes projet
-[x] Valorisation de la propostion de don
-[x] Préparation et validation du don
-[x] Transport
-[x] Livraison 
-[x] Films de présenations du projet et post instagram
-[x] Site de la vente (vitrine sans payement)
-[x] Livraison DT78
-[x] Gestion de moyen de paiement 
-[x] Vente par la DT78
-[x] Suivie de payements
-[x] Vente a l'hopital
-[] REX Projet
+- [x] Valorisation de la propostion de don
+- [x] Préparation et validation du don
+- [x] Transport
+- [x] Livraison 
+- [x] Films de présenations du projet et post instagram
+- [x] Site de la vente (vitrine sans payement)
+- [x] Livraison DT78
+- [x] Gestion de moyen de paiement 
+- [x] Vente par la DT78
+- [x] Suivie de payements
+- [X] Vente a l'hopital
+- [] REX Projet
 
 #### irritants identifiés
 - Couts logistique pour le transport 
